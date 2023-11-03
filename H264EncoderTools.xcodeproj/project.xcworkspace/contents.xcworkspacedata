@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:">
+      location = "self:/Users/chenxinxing/pag/11/H264EncoderTools/H264EncoderTools.xcodeproj">
    </FileRef>
 </Workspace>

@@ -27,7 +27,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5F4FFE332AC2D5D100317B79 /* FileEncoder */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FileEncoder; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F4FFE332AC2D5D100317B79 /* H264EncoderTools */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = H264EncoderTools; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4FFE362AC2D5D100317B79 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		5F4FFE3D2AC2D61D00317B79 /* cJSON.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cJSON.c; sourceTree = "<group>"; };
 		5F4FFE3F2AC2D61D00317B79 /* VideoEncoderX264.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoEncoderX264.cpp; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 		5F4FFE2A2AC2D5D100317B79 = {
 			isa = PBXGroup;
 			children = (
-				5F4FFE352AC2D5D100317B79 /* FileEncoder */,
+				5F4FFE352AC2D5D100317B79 /* H264EncoderTools */,
 				5F4FFE342AC2D5D100317B79 /* Products */,
 				5F4FFE492AC4076C00317B79 /* Frameworks */,
 			);
@@ -63,12 +63,12 @@
 		5F4FFE342AC2D5D100317B79 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5F4FFE332AC2D5D100317B79 /* FileEncoder */,
+				5F4FFE332AC2D5D100317B79 /* H264EncoderTools */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5F4FFE352AC2D5D100317B79 /* FileEncoder */ = {
+		5F4FFE352AC2D5D100317B79 /* H264EncoderTools */ = {
 			isa = PBXGroup;
 			children = (
 				5F4FFE3D2AC2D61D00317B79 /* cJSON.c */,
@@ -80,7 +80,7 @@
 				5F4FFE3F2AC2D61D00317B79 /* VideoEncoderX264.cpp */,
 				5F4FFE442AC2D61D00317B79 /* VideoEncoderX264.h */,
 			);
-			path = FileEncoder;
+			path = H264EncoderTools;
 			sourceTree = "<group>";
 		};
 		5F4FFE492AC4076C00317B79 /* Frameworks */ = {
@@ -94,9 +94,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5F4FFE322AC2D5D100317B79 /* FileEncoder */ = {
+		5F4FFE322AC2D5D100317B79 /* H264EncoderTools */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5F4FFE3A2AC2D5D100317B79 /* Build configuration list for PBXNativeTarget "FileEncoder" */;
+			buildConfigurationList = 5F4FFE3A2AC2D5D100317B79 /* Build configuration list for PBXNativeTarget "H264EncoderTools" */;
 			buildPhases = (
 				5F4FFE2F2AC2D5D100317B79 /* Sources */,
 				5F4FFE302AC2D5D100317B79 /* Frameworks */,
@@ -106,9 +106,9 @@
 			);
 			dependencies = (
 			);
-			name = FileEncoder;
+			name = H264EncoderTools;
 			productName = FileEncoder;
-			productReference = 5F4FFE332AC2D5D100317B79 /* FileEncoder */;
+			productReference = 5F4FFE332AC2D5D100317B79 /* H264EncoderTools */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -125,7 +125,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5F4FFE2E2AC2D5D100317B79 /* Build configuration list for PBXProject "FileEncoder" */;
+			buildConfigurationList = 5F4FFE2E2AC2D5D100317B79 /* Build configuration list for PBXProject "H264EncoderTools" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -138,7 +138,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5F4FFE322AC2D5D100317B79 /* FileEncoder */,
+				5F4FFE322AC2D5D100317B79 /* H264EncoderTools */,
 			);
 		};
 /* End PBXProject section */
@@ -304,7 +304,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5F4FFE2E2AC2D5D100317B79 /* Build configuration list for PBXProject "FileEncoder" */ = {
+		5F4FFE2E2AC2D5D100317B79 /* Build configuration list for PBXProject "H264EncoderTools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F4FFE382AC2D5D100317B79 /* Debug */,
@@ -313,7 +313,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5F4FFE3A2AC2D5D100317B79 /* Build configuration list for PBXNativeTarget "FileEncoder" */ = {
+		5F4FFE3A2AC2D5D100317B79 /* Build configuration list for PBXNativeTarget "H264EncoderTools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5F4FFE3B2AC2D5D100317B79 /* Debug */,
