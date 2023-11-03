@@ -15,30 +15,30 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FileEncoder\cJSON.c">
+    <ClCompile Include="H264EncoderTools\cJSON.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="FileEncoder\main.cpp">
+    <ClCompile Include="H264EncoderTools\main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="FileEncoder\VideoEncoderOffline.cpp">
+    <ClCompile Include="H264EncoderTools\VideoEncoderOffline.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="FileEncoder\VideoEncoderX264.cpp">
+    <ClCompile Include="H264EncoderTools\VideoEncoderX264.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FileEncoder\cJSON.h">
+    <ClInclude Include="H264EncoderTools\cJSON.h">
       <Filter>源文件</Filter>
     </ClInclude>
-    <ClInclude Include="FileEncoder\VideoEncoder.h">
+    <ClInclude Include="H264EncoderTools\VideoEncoder.h">
       <Filter>源文件</Filter>
     </ClInclude>
-    <ClInclude Include="FileEncoder\VideoEncoderX264.h">
+    <ClInclude Include="H264EncoderTools\VideoEncoderX264.h">
       <Filter>源文件</Filter>
     </ClInclude>
-    <ClInclude Include="FileEncoder\VideoEncoderOffline.h">
+    <ClInclude Include="H264EncoderTools\VideoEncoderOffline.h">
       <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>

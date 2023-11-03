@@ -19,16 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FileEncoder\cJSON.c" />
-    <ClCompile Include="FileEncoder\main.cpp" />
-    <ClCompile Include="FileEncoder\VideoEncoderOffline.cpp" />
-    <ClCompile Include="FileEncoder\VideoEncoderX264.cpp" />
+    <ClCompile Include="H264EncoderTools\cJSON.c" />
+    <ClCompile Include="H264EncoderTools\main.cpp" />
+    <ClCompile Include="H264EncoderTools\VideoEncoderOffline.cpp" />
+    <ClCompile Include="H264EncoderTools\VideoEncoderX264.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FileEncoder\cJSON.h" />
-    <ClInclude Include="FileEncoder\VideoEncoder.h" />
-    <ClInclude Include="FileEncoder\VideoEncoderOffline.h" />
-    <ClInclude Include="FileEncoder\VideoEncoderX264.h" />
+    <ClInclude Include="H264EncoderTools\cJSON.h" />
+    <ClInclude Include="H264EncoderTools\VideoEncoder.h" />
+    <ClInclude Include="H264EncoderTools\VideoEncoderOffline.h" />
+    <ClInclude Include="H264EncoderTools\VideoEncoderX264.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

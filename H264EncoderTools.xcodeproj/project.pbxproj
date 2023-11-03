@@ -107,7 +107,7 @@
 			dependencies = (
 			);
 			name = H264EncoderTools;
-			productName = FileEncoder;
+			productName = H264EncoderTools;
 			productReference = 5F4FFE332AC2D5D100317B79 /* H264EncoderTools */;
 			productType = "com.apple.product-type.tool";
 		};

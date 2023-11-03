@@ -1,6 +1,6 @@
 //
 //  VideoEncoderOffline.h
-//  FileEncoder
+//  H264EncoderTools
 //
 //  Created by 陈新星 on 2023/10/12.
 //
