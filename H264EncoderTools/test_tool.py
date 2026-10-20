@@ -575,6 +575,79 @@ def test_determinism():
 # RUNNER
 # =============================================================================
 
+def make_moving_block_frame(w, h, index):
+    """生成含移动方块的 YUV420p 帧：相邻帧有真实运动，促使 x264 b_adapt 选 B 帧。
+
+    简单的整帧灰度渐变对 b_adapt 没有吸引力，输出全是 P 帧，无法触发回归断言。
+    """
+    y = bytearray([40] * (w * h))
+    u = bytes([128] * (w // 2 * h // 2))
+    v = bytes([128] * (w // 2 * h // 2))
+    block = 16
+    bx = (index * 7) % max(1, w - block)
+    by = (index * 5) % max(1, h - block)
+    for row in range(block):
+        base = (by + row) * w + bx
+        for col in range(block):
+            y[base + col] = 220
+    return bytes(y) + u + v
+
+
+def test_no_b_frames():
+    """回归测试（libpag issue #3767）：输出码流必须无 B 帧（DTS == PTS）。
+
+    PAG VideoSequence 要求解码序 == 显示序（libpag 的 demuxer/解码器均按此假设实现）。
+    x264 "medium" preset 默认 bframes=3，对含运动的素材会产出 IBBP/IBBBP 码流：
+    B 帧输出时 TimeStamp（PTS）与输出序号（DTS）不一致，播放端逐帧取帧时出现
+    规律性错帧/顿挫。断言：每帧 OutFrameInfo 的 TimeStamp 必须等于其输出序号。
+    """
+    n = 12
+    w = h = 64
+    work = make_work_dir("no_b_frames")
+    write_param(work, w=w, h=h)
+    proc = start_tool(work)
+
+    if not wait_for(os.path.join(work, "Header-0.dat")):
+        return False, "Header-0.dat timeout"
+
+    for i in range(n):
+        yuv = make_moving_block_frame(w, h, i)
+        feed_frame(work, i, w=w, h=h, yuv_data=yuv)
+        time.sleep(0.03)
+        if proc.poll() is not None:
+            return False, f"tool exited early at frame {i}"
+
+    send_end(work)
+
+    try:
+        proc.wait(timeout=15)
+    except subprocess.TimeoutExpired:
+        proc.terminate()
+        return False, "tool did not exit after InEnd"
+
+    out_end = read_out_end(work)
+    if out_end is None or '"Error": 1' in (out_end or ""):
+        return False, f"unexpected OutEnd: {out_end}"
+
+    count = count_output_frames(work)
+    if count != n:
+        return False, f"expected {n} output frames, got {count}"
+
+    ok, msg = verify_output_integrity(work, n)
+    if not ok:
+        return False, msg
+
+    for i in range(n):
+        info_path = os.path.join(work, f"OutFrameInfo-{i}.txt")
+        with open(info_path) as f:
+            info = json.load(f)
+        if info["TimeStamp"] != i:
+            return False, (f"frame {i} has TimeStamp {info['TimeStamp']} (expected {i}): "
+                           f"B-frames detected, decode order != presentation order "
+                           f"(libpag issue #3767)")
+    return True, f"{n} frames, all TimeStamp == output index (no B-frames)"
+
+
 ALL_TESTS = [
     ("basic_5frames", test_basic_5frames),
     ("rapid_100frames", test_rapid_100frames),
@@ -586,6 +659,7 @@ ALL_TESTS = [
     ("early_exit", test_early_exit),
     ("missing_param", test_missing_param),
     ("determinism", test_determinism),
+    ("no_b_frames", test_no_b_frames),
 ]
 
 

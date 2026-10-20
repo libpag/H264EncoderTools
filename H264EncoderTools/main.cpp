@@ -320,6 +320,13 @@ class X264Encoder {
     xp.rc.i_lookahead = 40;
     xp.i_log_level = X264_LOG_NONE;
 
+    // A PAG VideoSequence requires decode order == presentation order (DTS == PTS): the
+    // demuxer/decoders in libpag assume a B-frame-free stream (fixed maxReorderSize, seek
+    // logic indexed by PTS). The "medium" preset defaults to bframes=3, which silently emits
+    // IBBBP streams; players then show stale frames at every B-frame group (libpag issue
+    // #3767). Explicitly disable B-frames to keep the DTS == PTS contract.
+    xp.i_bframe = 0;
+
     if (param.maxKeyFrameInterval > 0) {
       xp.i_keyint_max = param.maxKeyFrameInterval;
       if (xp.i_keyint_min > xp.i_keyint_max) {
